@@ -1,18 +1,56 @@
 # HTTP学习记录
 
-![在这里插入图片描述](https://github.com/ChenYikunReal/http_training/blob/master/images/http-background.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![](images/http-background.jpg)
 
-## 新建HTTP请求
+## HTTP基础知识
+
+![](images/http-transfer.jpg)
+
+### HTTP的三个性质
+- HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。
+- HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。
+- HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。
+
+### HTTP的九种请求方法
+根据 HTTP 标准，HTTP 请求可以使用多种请求方法：
+- `HTTP1.0`定义了三种请求方法：`GET`、`POST`、`HEAD`方法。
+- `HTTP1.1`新增了六种请求方法：`OPTIONS`、`PUT`、`PATCH`、`DELETE`、`TRACE`、`CONNECT`方法。
+
+![](images/http-request-types.png)
+
+### HTTP请求与相应
+![](images/http-request.png)
+
+![](images/http-response.jpg)
+
+### HTTP请求头
+![](images/http-header.png)
+
+### HTTP内容类型
+![](images/http-content-types.png)
+
+### HTTP返回码
+HTTP返回码的分类及描述
+- `1**` : 信息，服务器收到请求，需要请求者继续执行操作
+- `2**` : 成功，操作被成功接收并处理
+- `3**` : 重定向，需要进一步的操作以完成请求
+- `4**` : 客户端错误，请求包含语法错误或无法完成请求
+- `5**` : 服务器错误，服务器在处理请求的过程中发生了错误
+
+![](images/http-state-code.png)
+
+## HTTP强化训练
+
+### 新建HTTP请求
 需要IDEA支持的`HTTP Client`插件：<br/>
 
-![在这里插入图片描述](https://github.com/ChenYikunReal/http_training/blob/master/images/http-client-plugin.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
-
+![在这里插入图片描述](images/http-client-plugin.png)
 
 新建一个`HTTP Requests`文件就可以啦：<br/>
 
-![在这里插入图片描述](https://github.com/ChenYikunReal/http_training/blob/master/images/new-http-request.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](images/new-http-request.png)
 
-## HTTP请求返回值
+### HTTP请求返回数据
 以`to-baidu.http`为例，返回数据为：
 ```http request
 GET http://www.baidu.com
